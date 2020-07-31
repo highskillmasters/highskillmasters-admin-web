@@ -8,15 +8,21 @@ import { MemberCards } from '../components'
 
 import defaultMembers from '../data/members.json'
 
-const MemberCardsContainer = ({ members, handleGetAllMembers }) => {
+const MemberCardsContainer = ({ isLoading, members, handleGetAllMembers }) => {
   // Dispatch an action whenever this container is rendered
   useEffect(() => handleGetAllMembers(), [handleGetAllMembers])
 
-  return <MemberCards members={members ? members : defaultMembers} />
+  return (
+    <MemberCards
+      isLoading={isLoading}
+      members={members ? members : defaultMembers}
+    />
+  )
 }
 
 const mapStateToProps = (state) => {
   return {
+    isLoading: state.members.isLoading,
     members: state.members.data
   }
 }
@@ -27,6 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 MemberCardsContainer.propTypes = {
+  isLoading: PropTypes.bool,
   members: PropTypes.array,
   handleGetAllMembers: PropTypes.func
 }

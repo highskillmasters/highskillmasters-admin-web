@@ -1,17 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const MemberCards = ({ members }) => {
+const MemberCards = ({ isLoading, members }) => {
   return (
     <div>
-      {members.map((member, index) => {
-        return <div key={index}>{member.email}</div>
-      })}
+      {isLoading ? (
+        <div>
+          <p>Loading members...</p>
+        </div>
+      ) : (
+        members.map((member, index) => {
+          return <div key={index}>{member.email}</div>
+        })
+      )}
     </div>
   )
 }
 
 MemberCards.propTypes = {
+  isLoading: PropTypes.bool,
   members: PropTypes.array
 }
 
