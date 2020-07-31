@@ -15,12 +15,15 @@ const Router = ({ isAuthenticated }) => {
         <Navigation />
 
         <Switch>
-          <Route path='/' exact>
-            <Auth />
-          </Route>
-          <Route path='/'>
-            <Dashboard />
-          </Route>
+          {isAuthenticated ? (
+            <Route path='/'>
+              <Dashboard />
+            </Route>
+          ) : (
+            <Route path='/' exact>
+              <Auth />
+            </Route>
+          )}
         </Switch>
       </div>
     </BrowserRouter>
