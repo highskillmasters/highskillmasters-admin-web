@@ -24,7 +24,7 @@ const auth = (state = initialState, action) => {
         isLoading: false,
         error: action.payload.error
       }
-    case 'LOGOUT_USER':
+    case 'LOGOUT':
       return {
         ...state,
         isAuthenticated: false
