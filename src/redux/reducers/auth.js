@@ -14,7 +14,7 @@ const auth = (state = initialState, action) => {
         isLoading: true,
         error: null
       }
-    case 'LOGIN_SUCCESS':
+    case 'LOGIN_SUCCEED':
       return {
         ...state,
         isLoading: false,
