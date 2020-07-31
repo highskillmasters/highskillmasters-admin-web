@@ -10,7 +10,13 @@ const MemberCards = ({ isLoading, members }) => {
         </div>
       ) : (
         members.map((member, index) => {
-          return <div key={index}>{member.email}</div>
+          return (
+            <div key={index}>
+              <p>
+                {member.email} {member.isVerified && '✅'}
+              </p>
+            </div>
+          )
         })
       )}
     </div>
