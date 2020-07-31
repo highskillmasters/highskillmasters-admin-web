@@ -1,10 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import { Navigation } from './components'
 import { Auth, Dashboard } from './pages'
 
-const Router = () => {
+const Router = ({ isAuthenticated }) => {
+  console.log(isAuthenticated)
+
   return (
     <BrowserRouter>
       <div>
@@ -14,7 +18,7 @@ const Router = () => {
           <Route path='/' exact>
             <Auth />
           </Route>
-          <Route path='/dashboard'>
+          <Route path='/'>
             <Dashboard />
           </Route>
         </Switch>
@@ -23,4 +27,14 @@ const Router = () => {
   )
 }
 
-export default Router
+Router.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps)(Router)
