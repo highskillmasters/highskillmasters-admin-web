@@ -1,6 +1,6 @@
 const initialState = {
   isLoading: false,
-  members: [],
+  data: null,
   error: null
 }
 
@@ -17,7 +17,7 @@ const members = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: null,
-        members: action.payload.members
+        data: action.payload.data
       }
     case 'GET_ALL_MEMBERS_FAILED':
       return {
