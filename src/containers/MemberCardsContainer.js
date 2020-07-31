@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
+import { getAllMembers } from '../redux/actions/members'
 
 import { MemberCards } from '../components'
 
 import defaultMembers from '../data/members.json'
 
-const MemberCardsContainer = ({ members }) => {
+const MemberCardsContainer = ({ members, handleGetAllMembers }) => {
+  // Dispatch an action whenever this container is rendered
+  useEffect(() => handleGetAllMembers(), [handleGetAllMembers])
+
   return <MemberCards members={members ? members : defaultMembers} />
 }
 
@@ -17,12 +22,13 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAllMembers: () => dispatch({ type: 'GET_ALL_MEMBERS' })
+    handleGetAllMembers: () => dispatch(getAllMembers())
   }
 }
 
 MemberCardsContainer.propTypes = {
-  members: PropTypes.array
+  members: PropTypes.array,
+  handleGetAllMembers: PropTypes.func
 }
 
 export default connect(

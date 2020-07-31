@@ -1,10 +1,14 @@
 import axios from 'redaxios'
 
-export const getAllMembers = (apiKey) => {
-  return (dispatch) => {
+export const getAllMembers = () => {
+  return (dispatch, getState) => {
     dispatch(getAllMembersStarted())
+
+    const state = getState()
+    const apiKey = state.auth.apiKey
+
     axios
-      .post(`${process.env.REACT_APP_API_URL}/members?api_key=${apiKey}`)
+      .get(`${process.env.REACT_APP_API_URL}/members?api_key=${apiKey}`)
       .then((response) => dispatch(getAllMembersSucceed(response.data)))
       .catch((error) => dispatch(getAllMembersFailed(error)))
   }
