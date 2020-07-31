@@ -1,4 +1,4 @@
-import auth from './auth'
-import dashboard from './dashboard'
+import Auth from './auth'
+import Dashboard from './dashboard'
 
-export { auth, dashboard }
+export { Auth, Dashboard }

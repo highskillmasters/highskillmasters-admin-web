@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { AuthForm } from './components'
+import Router from './Router'
 
 const App = () => {
   return (
     <div>
-      <AuthForm />
+      <Router />
     </div>
   )
 }
