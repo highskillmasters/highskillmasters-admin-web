@@ -1,3 +1,4 @@
 import AuthForm from './AuthForm'
+import Navigation from './Navigation'
 
-export { AuthForm }
+export { AuthForm, Navigation }
