@@ -1,6 +1,7 @@
 const initialState = {
   isAuthenticated: false,
   isLoading: false,
+  response: null,
   error: null
 }
 
@@ -17,8 +18,9 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        error: null,
-        isAuthenticated: true
+        isAuthenticated: true,
+        response: action.payload.response,
+        error: null
       }
     case 'LOGIN_FAILED':
       return {

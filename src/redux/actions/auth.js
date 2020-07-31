@@ -23,8 +23,6 @@ const loginSuccess = (response) => ({
 })
 
 const loginFailed = (error) => {
-  console.log(error)
-
   return {
     type: 'LOGIN_FAILED',
     payload: {
