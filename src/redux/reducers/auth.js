@@ -1,8 +1,8 @@
 const initialState = {
   isAuthenticated: false,
   isLoading: false,
-  response: null,
-  error: null
+  error: null,
+  apiKey: null
 }
 
 const auth = (state = initialState, action) => {
@@ -19,8 +19,8 @@ const auth = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        response: action.payload.response,
-        error: null
+        error: null,
+        apiKey: action.payload.apiKey
       }
     case 'LOGIN_FAILED':
       return {
@@ -31,7 +31,9 @@ const auth = (state = initialState, action) => {
     case 'LOGOUT':
       return {
         ...state,
-        isAuthenticated: false
+        isAuthenticated: false,
+        error: null,
+        apiKey: null
       }
     default:
       return state
