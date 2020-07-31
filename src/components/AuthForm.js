@@ -1,31 +1,36 @@
+/* eslint-disable indent */
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { useForm } from 'react-hook-form'
 
 import { login } from '../redux/actions/auth'
 
-const AuthForm = ({ isAuthenticated, isLoading, error, handleLogin }) => {
-  console.info({ isAuthenticated, isLoading, error })
+const AuthForm = ({ isLoading, authError, handleLogin }) => {
+  const { register, handleSubmit, errors } = useForm()
 
   return (
     <form
-      onSubmit={(event) => {
-        event.preventDefault()
-        handleLogin()
-      }}
+      onSubmit={handleSubmit((data) => {
+        if (data.passKey) handleLogin(data.passKey)
+      })}
     >
       <h1>Enter pass key:</h1>
-      <input type='text' />
+
+      <input name='passKey' type='text' ref={register({ required: true })} />
       <input type='submit' value='Login' />
+
+      {errors.passKey && <p>Pass key is required</p>}
+      {authError && <p>Login failed</p>}
+      {isLoading && <p>Logging in...</p>}
     </form>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.isAuthenticated,
     isLoading: state.auth.isLoading,
-    error: state.auth.error
+    authError: state.auth.error
   }
 }
 
@@ -36,9 +41,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 AuthForm.propTypes = {
-  isAuthenticated: PropTypes.bool,
   isLoading: PropTypes.bool,
-  error: PropTypes.any,
+  authError: PropTypes.any,
   handleLogin: PropTypes.func
 }
 

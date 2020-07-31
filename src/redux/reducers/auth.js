@@ -9,7 +9,9 @@ const auth = (state = initialState, action) => {
     case 'LOGIN_STARTED':
       return {
         ...state,
-        isLoading: true
+        isAuthenticated: false,
+        isLoading: true,
+        error: null
       }
     case 'LOGIN_SUCCESS':
       return {

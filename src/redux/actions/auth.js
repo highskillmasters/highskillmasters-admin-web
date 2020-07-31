@@ -4,12 +4,10 @@ export const login = (apiKey) => {
   return (dispatch) => {
     dispatch(loginStarted())
 
-    const url = `${process.env.REACT_APP_API_URL}/auth/login`
-
     axios
-      .post(url, { apiKey })
-      .then((res) => dispatch(loginSuccess(res.data)))
-      .catch((err) => dispatch(loginFailed(err.message)))
+      .post(`${process.env.REACT_APP_API_URL}/auth/login`, { apiKey })
+      .then((response) => dispatch(loginSuccess(response.data)))
+      .catch((error) => dispatch(loginFailed(error)))
   }
 }
 
@@ -17,16 +15,20 @@ const loginStarted = () => ({
   type: 'LOGIN_STARTED'
 })
 
-const loginSuccess = (todo) => ({
+const loginSuccess = (response) => ({
   type: 'LOGIN_SUCCESS',
   payload: {
-    ...todo
+    ...response
   }
 })
 
-const loginFailed = (error) => ({
-  type: 'LOGIN_FAILED',
-  payload: {
-    error
+const loginFailed = (error) => {
+  console.log(error)
+
+  return {
+    type: 'LOGIN_FAILED',
+    payload: {
+      error
+    }
   }
-})
+}
