@@ -7,12 +7,10 @@ import { Navigation } from './components'
 import { Auth, Dashboard } from './pages'
 
 const Router = ({ isAuthenticated }) => {
-  console.log(isAuthenticated)
-
   return (
     <BrowserRouter>
       <div>
-        <Navigation />
+        {isAuthenticated && <Navigation />}
 
         <Switch>
           {isAuthenticated ? (

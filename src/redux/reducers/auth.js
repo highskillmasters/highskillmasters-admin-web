@@ -1,16 +1,39 @@
-const defaultState = {
-  isAuthenticated: false
+const initialState = {
+  isAuthenticated: false,
+  isLoading: false,
+  error: null,
+  apiKey: null
 }
 
-const auth = (state = defaultState, action) => {
+const auth = (state = initialState, action) => {
   switch (action.type) {
-    case 'AUTHENTICATE_USER':
+    case 'LOGIN_STARTED':
       return {
-        isAuthenticated: true
+        ...state,
+        isAuthenticated: false,
+        isLoading: true,
+        error: null
       }
-    case 'DEAUTHENTICATE_USER':
+    case 'LOGIN_SUCCEED':
       return {
-        isAuthenticated: false
+        ...state,
+        isLoading: false,
+        isAuthenticated: true,
+        error: null,
+        apiKey: action.payload.apiKey
+      }
+    case 'LOGIN_FAILED':
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      }
+    case 'LOGOUT':
+      return {
+        ...state,
+        isAuthenticated: false,
+        error: null,
+        apiKey: null
       }
     default:
       return state

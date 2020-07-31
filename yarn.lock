@@ -8946,6 +8946,11 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-hook-form@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.2.0.tgz#867457525066e519db26d9c8b074fe0b075e41a1"
+  integrity sha512-MZcVbTvif1wl8eJWGwdDebgFyrjma0R6m/eCY636WCAR6gDD/0i8XO0mvTF4DrelTf5e7L5OXJqT562PDGIzGg==
+
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -9146,6 +9151,11 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
+redaxios@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/redaxios/-/redaxios-0.3.0.tgz#83bf141494afbe210c44f32b142b8fd73c953f02"
+  integrity sha512-9C4Wvdp/jn4wwBCGMntqu0JCAw+Kfr/uGfMR+JwC0Bg94ORTRzo2dPdHSIPxwSE9/4ORYKmOjhH28mHiuzZSJA==
+
 redent@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f"
@@ -9158,6 +9168,11 @@ redux-devtools-extension@2.13.8:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
+
+redux-thunk@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
 redux@4.0.5:
   version "4.0.5"

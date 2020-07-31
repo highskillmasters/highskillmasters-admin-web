@@ -1,12 +1,31 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-const Navigation = () => {
+const Navigation = ({ handleLogout }) => {
   return (
     <nav>
-      <Link to='/'>Logout</Link>
+      <a
+        href='/'
+        onClick={(event) => {
+          event.preventDefault()
+          handleLogout()
+        }}
+      >
+        Logout
+      </a>
     </nav>
   )
 }
 
-export default Navigation
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleLogout: () => dispatch({ type: 'LOGOUT' })
+  }
+}
+
+Navigation.propTypes = {
+  handleLogout: PropTypes.func
+}
+
+export default connect(null, mapDispatchToProps)(Navigation)
