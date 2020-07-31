@@ -1,13 +1,11 @@
 import React from 'react'
 
+import { AuthForm } from './components'
+
 const App = () => {
   return (
     <div>
-      Enter pass key:
-      <form>
-        <input type='text' />
-        <input type='submit' value='Authenticate' />
-      </form>
+      <AuthForm />
     </div>
   )
 }
